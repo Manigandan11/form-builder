@@ -87,5 +87,6 @@ const slice = createSlice({
   }
 });
 
-export const { setWorkingForm, addField, updateField, removeField, reorderFields, saveWorkingForm, loadFormToPreview, deleteForm, updateFormName, resetFields } = slice.actions;
+export const { setWorkingForm, addField, updateField, removeField, reorderFields,
+  saveWorkingForm, loadFormToPreview, deleteForm, updateFormName, resetFields } = slice.actions;
 export default slice.reducer;

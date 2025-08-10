@@ -1,4 +1,4 @@
-export type FieldType = ' ' | 'date' | 'number' | 'text' |  'textarea' | 'select' | 'radio' | 'checkbox' ;
+export type FieldType = ' ' | 'date' | 'number' | 'text' | 'textarea' | 'select' | 'radio' | 'checkbox';
 
 export interface FieldOption {
   id: string;
@@ -18,10 +18,10 @@ export interface Field {
     pattern?: string;
     customPassword?: boolean;
   };
-  options?: FieldOption[]; // for select/radio/checkbox
+  options?: FieldOption[];
   derived?: {
-    parents: string[]; // parent field ids
-    expression: string; // template expression like "${f1} + ${f2}"
+    parents: string[];
+    expression: string;
   } | null;
 }
 export interface FormSchema {

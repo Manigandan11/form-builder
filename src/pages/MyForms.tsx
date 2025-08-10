@@ -1,7 +1,7 @@
-import React from 'react';
+//import React from 'react';
 import { useAppSelector, useAppDispatch } from '../utils/hooks';
 import { List, ListItem, ListItemText, Button, Box } from '@mui/material';
-import { loadFormToPreview, deleteForm, setWorkingForm } from '../slices/formBuilderSlice';
+import { loadFormToPreview, deleteForm, setWorkingForm} from '../slices/formBuilderSlice';
 import { useNavigate } from 'react-router-dom';
 
 export default function MyForms() {
@@ -11,14 +11,14 @@ export default function MyForms() {
 
   return (
     <div
-    style={{
-      backgroundColor: '#f0f0f0',
-      minHeight: '100vh',
-      padding: '20px',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '20px'
-    }}>
+      style={{
+        backgroundColor: '#f0f0f0',
+        minHeight: '100vh',
+        padding: '20px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '20px'
+      }}>
       <List>
         {forms.map(f => (
           <ListItem key={f.id}>
@@ -29,17 +29,14 @@ export default function MyForms() {
             <Box display="flex" gap={1}>
               <Button variant="contained" onClick={() => {
                 dispatch(loadFormToPreview(f.id));
-                //dispatch(setWorkingForm(f));
-                //nav('/preview ? mode=view');
-                nav('/preview');
+                nav(`/preview?mode=view&id=${f.id}`);                
               }}>
                 Open
               </Button>
               <Button variant="contained" color="error" onClick={() => {
                 if (window.confirm(`Delete form "${f.name}"?`)) {
                   dispatch(deleteForm(f.id));
-                }
-              }}>
+                }}}>
                 Delete
               </Button>
             </Box>
